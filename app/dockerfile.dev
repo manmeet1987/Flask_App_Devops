@@ -4,4 +4,10 @@ RUN pip install flask
 
 WORKDIR /app
 
+EXPOSE 8000
 
+COPY ./ ./
+
+ENV FLASK_APP=./main.py
+
+ENTRYPOINT flask run
