@@ -1,0 +1,14 @@
+version: "3"
+services:
+    flaskapp:
+        build:
+            dockerfile: dockerfile.dev
+            context: ./app
+        image: 'flaskapp:latest'
+        container_name: flaskapp
+        volumes:
+            - ./app:/app
+        environment:
+            - FLASK_APP=/app/main.py
+        command: flask run
+            
