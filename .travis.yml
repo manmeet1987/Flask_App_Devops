@@ -6,6 +6,8 @@ services:
 before_install:
     - docker build -t singhmanmeet87/flask_app_devops -f dockerfile.dev .
 
+language: generic
+
 deploy:
     - provider: elasticbeanstalk
       region: us-east-1
