@@ -3,8 +3,8 @@ sudo: required
 services:
     - docker
 
-before_install:
-    - docker build -t singhmanmeet87/flask_app_devops -f dockerfile.dev .
+#before_install:
+#    - docker build -t singhmanmeet87/flask_app_devops -f dockerfile.dev .
 
 language: generic
 
