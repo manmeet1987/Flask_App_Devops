@@ -1,15 +1,15 @@
-FROM python:3.6-slim
+FROM python:3.6
 
 RUN pip install flask
-RUN sudo yum install uwsgi
+RUN pip install uwsgi
 
-WORKDIR /app
+WORKDIR /flask
 
 EXPOSE 8000
 
 COPY ./ ./
 
-CMD["uWSGI","app.ini"]
+CMD ["uwsgi","app.ini"]
 #ENV FLASK_APP=./app/main.py
 
 #ENTRYPOINT flask run --host=0.0.0.0 --port=8000

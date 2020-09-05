@@ -2,13 +2,19 @@ version: "3"
 services:
     flaskapp:
         build:
-            dockerfile: dockerfile.dev
-            context: ./app
+            dockerfile: Dockerfile
+            context: ./flask
         image: 'flaskapp:latest'
         container_name: flaskapp
-        volumes:
-            - ./app:/app
-        environment:
-            - FLASK_APP=/app/main.py
-        command: flask run
+        expose:
+            - 8000
+
+    nginx:
+        build: ./nginx
+        image: 'nginx:latest'
+        container_name: nginx_c
+        ports:
+            - 8000:80
+        depends_on:
+            - flaskapp
             
